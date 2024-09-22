@@ -1,0 +1,147 @@
+/* Reset some default browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Basic styling for the entire page */
+  body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header styling */
+  .headerd {
+    background-color: #0B002E; /* Primary brand color */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .headerd h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .headerd p {
+    font-size: 1.2rem;
+  }
+  
+  /* Main layout */
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Section titles */
+  section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #0B002E; /* Primary color for section titles */
+  }
+  
+  /* Recent Activity list styling */
+  ul {
+    list-style: none;
+  }
+  
+  ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  ul li:last-child {
+    border-bottom: none;
+  }
+  
+  ul li span:first-child {
+    color: #981FFF; /* Accent color */
+  }
+  
+  /* Leaderboard styling */
+  .leaderboard li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .leaderboard li span {
+    font-size: 1.1rem;
+  }
+  
+  /* Highlighting top positions */
+  .leaderboard li:nth-child(1) span {
+    font-weight: bold;
+    color: gold;
+  }
+  
+  .leaderboard li:nth-child(2) span {
+    font-weight: bold;
+    color: silver;
+  }
+  
+  .leaderboard li:nth-child(3) span {
+    font-weight: bold;
+    color: #cd7f32;
+  }
+  
+  /* Footer link */
+  footer {
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: #fff; /* Primary color for link */
+    font-size: 1.1rem;
+    border: 1px solid #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  footer a:hover {
+    background-color: #0B002E;
+    color: #fff;
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+  
+    .headerd h1 {
+      font-size: 1.6rem;
+    }
+  
+    section h2 {
+      font-size: 1.4rem;
+    }
+  }
+  
+  

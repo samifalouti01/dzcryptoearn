@@ -1,0 +1,111 @@
+.offers-container {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #f4f7fa; /* Light background for a clean feel */
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Larger cards */
+    gap: 25px; /* More spacing between cards */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Elevate shadow on hover */
+}
+
+.card h2 {
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #333; /* Darker text for better readability */
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #666; /* Softer text color */
+}
+
+.card input[type="file"] {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 14px;
+}
+
+.card button {
+    background-color: #0b002e; /* Brand color */
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #981fff; /* Change color on hover */
+}
+
+/* Styling for the title of the offers section */
+.offers-container h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #0b002e;
+    font-weight: bold;
+}
+
+/* Optional: Mobile optimization */
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+.offer-description {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.offer-description li {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.container-offers {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}

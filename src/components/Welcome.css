@@ -1,0 +1,81 @@
+/* Welcome.css */
+.welcome {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+header, footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #0b002e;
+  color: white;
+  padding: 40px;
+}
+
+img {
+  width: 60%;
+  margin: 20px auto;
+}
+
+main {
+  background-image: url('/public/background.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  min-height: 110vh; 
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-grow: 1;
+    flex-shrink: 0.5;
+    background-image: url('/public/mobilebackground.gif');
+    background-size: 100%; 
+    background-position: center; 
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  .sec {
+    max-height: 300px;
+    position: relative;
+    bottom: 10px;
+    z-index: 999;
+  }
+}
+
+.buttons {
+  display: flex;
+  position: fixed;
+  top: 3%;
+  right: 3%;
+  justify-content: center;
+}
+
+.buttons button {
+  margin: 0 10px;
+}
+
+footer {
+  padding: 20px;
+  z-index: 1000;
+}
+
+.sec img {
+  width: 80px;
+  margin-left: 30px;
+  border-radius: 15px;
+}
+
+.sec {
+  max-height: 300px;
+  position: fixed;
+  bottom: 10px;
+  z-index: 999;
+}

@@ -1,0 +1,79 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b002e; /* Dark background */
+  color: white;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-title {
+  flex: 1;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #38b6ff; /* Pink accent color for the title */
+}
+
+.header-title p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+.header-title strong {
+  color: #38b6ff; /* Highlight points with pink */
+}
+
+.header-actions .logout-button {
+  background-color: #38b6ff; /* Primary button color */
+  color: #0b002e;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-actions .logout-button:hover {
+  background-color: #981fff; /* Darken button on hover */
+}
+
+@media (max-width: 768px) {
+  .header-actions .logout-button {
+    width: 40px;
+    height: 40px; /* Ensure the height is set */
+    text-indent: -9999px;  /* Hide the text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./logout-svgrepo-com.svg'); /* Add your icon path */
+    background-size: 24px; /* Ensure the icon fits within the button */
+    background-repeat: no-repeat; /* Prevent the icon from repeating */
+    background-position: center; /* Center the icon */
+}
+  
+  .header-actions {
+    margin-top: 10px;
+  }
+
+  .header-title h1 {
+    font-size: 22px;
+  }
+
+  .header-title p {
+    font-size: 14px;
+  }
+}

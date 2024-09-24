@@ -11,45 +11,27 @@ const Checker = ({ children }) => {
 
   useEffect(() => {
     const checkUserPoints = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
       const userId = user?.id;
 
-      if (!userId) {
+      if (userError || !userId) {
         setLoading(false);
         return;
       }
 
-      // Check if user is in total_points table
       const { data: totalPointsData, error: totalPointsError } = await supabase
         .from('total_points')
         .select('user_id')
         .eq('user_id', userId)
         .single();
 
-      if (totalPointsError) {
-        console.error('Error checking total points:', totalPointsError);
-        setLoading(false);
-        return;
-      }
-
-      if (!totalPointsData) {
-        // User is not in total_points table, add them
-        const { error: insertError } = await supabase
-          .from('total_points')
-          .insert([{
-            user_id: userId,
-            total_points: 0,
-            exchanged_points: 0,
-            updated_at: new Date().toISOString(),
-          }]);
-
-        if (insertError) {
-          console.error('Error inserting into total_points:', insertError.message);
-          setLoading(false);
-          return;
-        }
-
-        // Show popup
+      if (totalPointsError || !totalPointsData) {
+        await supabase.from('total_points').insert([{
+          user_id: userId,
+          total_points: 0,
+          exchanged_points: 0,
+          updated_at: new Date().toISOString(),
+        }]);
         setShowPopup(true);
       }
 
@@ -57,20 +39,20 @@ const Checker = ({ children }) => {
     };
 
     checkUserPoints();
-  }, []); // Empty dependency array to run only on mount
+  }, []);
 
   const handleStartEarning = () => {
-    navigate('/main/dashboard'); // Redirect to dashboard
+    navigate('/main/dashboard');
     setShowPopup(false);
   };
 
-  if (loading) return <ClipLoader className="loader" color={"#123abc"} loading={loading} size={150} />;
+  if (loading) {
+    return <ClipLoader className="loader" color={"#123abc"} loading={loading} size={150} />;
+  }
 
   return (
     <div>
       {children}
-
-      {/* Popup for new users */}
       {showPopup && (
         <div className="popup">
           <div className="popup-content">

@@ -176,7 +176,8 @@ function Links({ updateHeaderPoints }) {
       const currentPoints = Number(userData?.total_points) || 0;
       console.log('Current points before update:', currentPoints);
   
-      const newTotalPoints = currentPoints + points;
+      const newPoints = Number(points); // Ensure points is a number
+      const newTotalPoints = currentPoints + newPoints;
       const { error: updateError } = await supabase
         .from('total_points')
         .update({ total_points: newTotalPoints, updated_at: new Date() })
@@ -185,12 +186,13 @@ function Links({ updateHeaderPoints }) {
       if (updateError) {
         console.error('Error updating total points:', updateError);
       } else {
-        console.log(`Updated points: ${currentPoints} + ${points} = ${newTotalPoints}`);
+        console.log(`Updated points: ${currentPoints} + ${newPoints} = ${newTotalPoints}`);
       }
     } catch (error) {
       console.error('Error in updateTotalPoints:', error);
     }
-  };  
+  };
+
 
   const decrementUsers = async (cardId) => {
     try {
@@ -286,7 +288,7 @@ function Links({ updateHeaderPoints }) {
 
   return (
     <div key={refreshKey}>
-      <h1>Short Links</h1>
+      <h1>Short Links ({cards.length})</h1>
       <div className="card-container">
         {cards.length > 0 ? (
           cards.map((card) => (
@@ -312,7 +314,7 @@ function Links({ updateHeaderPoints }) {
             </div>
           ))
         ) : (
-          <p>No cards available</p>
+          <p>No ShortLinks available</p>
         )}
       </div>
       {showSuccess && (

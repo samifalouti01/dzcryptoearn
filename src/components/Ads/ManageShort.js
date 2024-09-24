@@ -18,7 +18,7 @@ function ManageAds() {
 
       if (userId) {
         const { data, error } = await supabase
-          .from('user_websites')
+          .from('user_ads')
           .select('*')
           .eq('user_id', userId);
 
@@ -36,7 +36,7 @@ function ManageAds() {
   // Handle ad deletion
   const handleDeleteAd = async (id) => {
     const { error } = await supabase
-      .from('user_websites')
+      .from('user_ads')
       .delete()
       .eq('id', id);
 
@@ -66,7 +66,7 @@ function ManageAds() {
     }
 
     const { error } = await supabase
-      .from('user_websites')
+      .from('user_ads')
       .update({ title, short_description: shortDescription, link, points: parseInt(points) })
       .eq('id', id);
 

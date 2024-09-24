@@ -40,14 +40,6 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink 
-            to="/main/ads" 
-            className={({ isActive }) => (isActive ? 'active-link' : '')}
-          >
-            <FaBullhorn /> <span className="nav-text">Ads</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink 
             to="/main/offers" 
             className={({ isActive }) => (isActive ? 'active-link' : '')}
           >
@@ -60,6 +52,14 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? 'active-link' : '')}
           >
             <FaPlayCircle /> <span className="nav-text">Watch Ads</span> 
+          </NavLink>
+        </li>
+        <li>
+          <NavLink 
+            to="/main/ads" 
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
+          >
+            <FaBullhorn /> <span className="nav-text">Ads Management</span>
           </NavLink>
         </li>
       </ul>

@@ -82,7 +82,7 @@ function CreateAds() {
 
       // Start a transaction to create the ad and deduct points
       const { error: adError } = await supabase
-        .from('user_websites')
+        .from('user_ads')
         .insert([{
           user_id: userId,
           title,

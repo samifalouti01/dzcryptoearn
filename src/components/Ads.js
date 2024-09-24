@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Exchange from './Ads/Exchange';
 import CreateAds from './Ads/CreateAds';
 import ManageAds from './Ads/ManageAds';
-import CreateOffer from './Ads/CreateOffer'; // New import
-import ManageOffers from './Ads/ManageOffers'; // New import
-import { supabase } from '../supabaseClient'; // Import your Supabase client
+import CreateOffer from './Ads/CreateOffer'; 
+import ManageOffers from './Ads/ManageOffers'; 
+import CreateShort from './Ads/CreateShort'; 
+import ManageShort from './Ads/ManageShort'; 
+import { supabase } from '../supabaseClient'; 
 import './Ads.css';
 
 function Ads() {
@@ -49,6 +51,8 @@ function Ads() {
         <button onClick={() => setActiveTab('exchange')}>Exchange Points</button>
         <button onClick={() => setActiveTab('create')}>Create Ads</button>
         <button onClick={() => setActiveTab('manage')}>Manage Ads</button>
+        <button onClick={() => setActiveTab('createShort')}>Create Shortlink</button>
+        <button onClick={() => setActiveTab('manageShort')}>Manage Shortlink</button>
         <button onClick={() => setActiveTab('createOffer')}>Create Offer</button> {/* New tab */}
         <button onClick={() => setActiveTab('manageOffer')}>Manage Offers</button> {/* New tab */}
       </div>
@@ -57,6 +61,8 @@ function Ads() {
         {activeTab === 'exchange' && <Exchange />}
         {activeTab === 'create' && <CreateAds />}
         {activeTab === 'manage' && <ManageAds />}
+        {activeTab === 'createShort' && <CreateShort />}
+        {activeTab === 'manageShort' && <ManageShort />}
         {activeTab === 'createOffer' && <CreateOffer />} {/* New tab content */}
         {activeTab === 'manageOffer' && <ManageOffers />} {/* New tab content */}
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import Exchange from './Ads/Exchange';
+import Header from '../components/Header/Header';
+import Exchange from '../screens/Ads/Ads/Exchange';
 
 const ParentComponent = () => {
   const [headerPoints, setHeaderPoints] = useState(0);

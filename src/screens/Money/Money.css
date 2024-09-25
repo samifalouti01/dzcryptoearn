@@ -1,0 +1,133 @@
+
+  
+  .deposit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 40px;
+  }
+
+  .deposit-form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .payment-history {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .custom-select {
+    margin-bottom: 20px;
+  }
+  
+  .custom-select label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .payment-images {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .payment-images img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    opacity: 0.5;
+  }
+  
+  .payment-images img.selected {
+    opacity: 1;
+    border: 2px solid #007bff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .review-btn {
+    width: 90%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .review-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .payment-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .payment-history-table th, .payment-history-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .payment-history-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .status-orange {
+    color: orange;
+  }
+  
+  .status-green {
+    color: green;
+  }
+  
+  .status-red {
+    color: red;
+  }
+  
+  .withdraw-instructions {
+    color: red;
+  }
+
+  .par {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }

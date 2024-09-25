@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Welcome from './components/Welcome';
-import Main from './components/Main';
-import Signup from './components/Signup';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import Links from './components/Links';
-import Withdrawal from './components/Withdrawal';
-import Deposit from './components/Deposit';
-import Ads from './components/Ads';
-import Offers from './components/Offers';
-import WatchAds from './components/WatchAds';
+import Welcome from './screens/Welcome/Welcome';
+import Main from './components/Main/Main';
+import Signup from './components/Auth/Signup';
+import Login from './components/Auth/Login';
+import Dashboard from './screens/Dashboard/Dashboard';
+import Links from './screens/Links/Links';
+import Withdrawal from './screens/Money/Withdrawal';
+import Deposit from './screens/Money/Deposit';
+import Ads from './screens/Ads/Ads';
+import Offers from './screens/Offers/Offers';
+import WatchAds from './screens/WatchAds/WatchAds';
 import ParentComponent from './components/ParentComponent'; 
 import { supabase } from './supabaseClient';
-import Checker from './components/Checker';
+import Checker from './components/Checker/Checker';
+import Docs from './screens/Docs/Docs';
+import Report from './screens/Report/Report';
 import './App.css';
 
 function App() {
@@ -57,6 +59,8 @@ function App() {
             <Route path="ads" element={<Ads />} />
             <Route path="offers" element={<Offers />} />
             <Route path="watchads" element={<WatchAds />} />
+            <Route path="report" element={<Report />} />
+            <Route path="documents" element={<Docs />} />
             <Route path="parent" element={<ParentComponent />} /> 
           </Route>
         </Routes>

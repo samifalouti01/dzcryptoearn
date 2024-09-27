@@ -43,6 +43,42 @@ function Ads() {
     fetchUserData(); // Fixed the typo here
   }, []);
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://aupoafto.com/400/8157385';
+    
+    try {
+      (document.body || document.documentElement).appendChild(script);
+    } catch (error) {
+      console.error('Error appending the script:', error);
+    }
+
+    // Optional: Cleanup the script when the component unmounts
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://psulrushe.net/401/8157382';
+    script.async = true;
+
+    try {
+      (document.body || document.documentElement).appendChild(script);
+    } catch (e) {
+      console.error("Error appending script:", e);
+    }
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script); 
+      }
+    };
+  }, []);
+
   return (
     <div className="ads-container">
       <h1>Ads Management</h1>

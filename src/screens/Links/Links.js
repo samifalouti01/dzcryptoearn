@@ -296,6 +296,24 @@ function Links({ updateHeaderPoints }) {
       });
   };
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://psulrushe.net/401/8157382';
+    script.async = true;
+
+    try {
+      (document.body || document.documentElement).appendChild(script);
+    } catch (e) {
+      console.error("Error appending script:", e);
+    }
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script); 
+      }
+    };
+  }, []);
+
   return (
     <div key={refreshKey}>
       <div className="banner">
@@ -315,36 +333,38 @@ function Links({ updateHeaderPoints }) {
       <h1>Short Links ({cards.length})</h1>
       <div className="card-container">
         {cards.length > 0 ? (
-          cards.map((card) => (
-            <div
-              key={card.id}
-              className={`card ${claimingCardId === card.id ? 'claiming' : ''}`}
-              style={{ opacity: card.status === 'locked' ? 0.5 : 1 }}
-            >
-              <h2>Points: {card.points} <FaCheckCircle /></h2>
-              <p>{card.short_description || 'No Description'}</p>
-              {claimingCardId === card.id && timer > 0 ? (
-                <div className="claim-timer">
-                  <p>Claiming in: {timer} seconds</p>
-                </div>
-              ) : (
-                <div className="line">
-                <button
-                  onClick={() => handleTake(card.id, card.link)}
-                  disabled={card.status === 'locked'}
-                >
-                  Take <FaExternalLinkAlt />
-                </button>
-                <button
-                style={{ width: '70px'}}
-                    onClick={() => handleCopy(card.link)}
-                  >
-                  <FaCopy />
-                  </button>
-                </div>
-              )}
-            </div>
-          ))
+          cards
+            .sort((a, b) => b.points - a.points) // Sort cards by points in descending order
+            .map((card) => (
+              <div
+                key={card.id}
+                className={`card ${claimingCardId === card.id ? 'claiming' : ''}`}
+                style={{ opacity: card.status === 'locked' ? 0.5 : 1 }}
+              >
+                <h2>Points: {card.points} <FaCheckCircle /></h2>
+                <p>{card.short_description || 'No Description'}</p>
+                {claimingCardId === card.id && timer > 0 ? (
+                  <div className="claim-timer">
+                    <p>Claiming in: {timer} seconds</p>
+                  </div>
+                ) : (
+                  <div className="line">
+                    <button
+                      onClick={() => handleTake(card.id, card.link)}
+                      disabled={card.status === 'locked'}
+                    >
+                      Take <FaExternalLinkAlt />
+                    </button>
+                    <button
+                      style={{ width: '70px' }}
+                      onClick={() => handleCopy(card.link)}
+                    >
+                      <FaCopy />
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))
         ) : (
           <p>No ShortLinks available</p>
         )}

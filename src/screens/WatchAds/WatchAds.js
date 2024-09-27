@@ -3,7 +3,7 @@ import { supabase } from '../../supabaseClient';
 import './WatchAds.css';
 import { FaExternalLinkAlt, FaCheckCircle, FaCopy } from 'react-icons/fa';
 
-function Test({ updateHeaderPoints }) {
+function WatchAds({ updateHeaderPoints }) {
   const [cards, setCards] = useState([]);
   const [claimingCardId, setClaimingCardId] = useState(null);
   const [timer, setTimer] = useState(0);
@@ -105,7 +105,7 @@ function Test({ updateHeaderPoints }) {
   
     // Start claiming process
     setClaimingCardId(cardId);
-    setTimer(15);
+    setTimer(45);
   
     const intervalId = setInterval(() => {
       setTimer((prev) => {
@@ -338,6 +338,24 @@ function Test({ updateHeaderPoints }) {
       });
   };
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://aupoafto.com/400/8157385';
+    
+    try {
+      (document.body || document.documentElement).appendChild(script);
+    } catch (error) {
+      console.error('Error appending the script:', error);
+    }
+
+    // Optional: Cleanup the script when the component unmounts
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div key={refreshKey}>
       <div className="banner">
@@ -354,41 +372,43 @@ function Test({ updateHeaderPoints }) {
           </p>
         </div>
       </div>
-      <h1>Watch Ads ({cards.length})</h1>
+      <h1>Short Links ({cards.length})</h1>
       <div className="card-container">
         {cards.length > 0 ? (
-          cards.map((card) => (
-            <div
-              key={card.id}
-              className={`card ${claimingCardId === card.id ? 'claiming' : ''}`}
-              style={{ opacity: card.status === 'locked' ? 0.5 : 1 }}
-            >
-              <h2>Points: {card.points} <FaCheckCircle /></h2>
-              <p>{card.short_description || 'No Description'}</p>
-              {claimingCardId === card.id && timer > 0 ? (
-                <div className="claim-timer">
-                  <p>Claiming in: {timer} seconds</p>
-                </div>
-              ) : (
-                <div className="line">
-                <button
-                  onClick={() => handleTake(card.id, card.link)}
-                  disabled={card.status === 'locked'}
-                >
-                  Take <FaExternalLinkAlt />
-                </button>
-                <button
-                style={{ width: '70px'}}
-                    onClick={() => handleCopy(card.link)}
-                  >
-                  <FaCopy />
-                  </button>
-                </div>
-              )}
-            </div>
-          ))
+          cards
+            .sort((a, b) => b.points - a.points) // Sort cards by points in descending order
+            .map((card) => (
+              <div
+                key={card.id}
+                className={`card ${claimingCardId === card.id ? 'claiming' : ''}`}
+                style={{ opacity: card.status === 'locked' ? 0.5 : 1 }}
+              >
+                <h2>Points: {card.points} <FaCheckCircle /></h2>
+                <p>{card.short_description || 'No Description'}</p>
+                {claimingCardId === card.id && timer > 0 ? (
+                  <div className="claim-timer">
+                    <p>Claiming in: {timer} seconds</p>
+                  </div>
+                ) : (
+                  <div className="line">
+                    <button
+                      onClick={() => handleTake(card.id, card.link)}
+                      disabled={card.status === 'locked'}
+                    >
+                      Take <FaExternalLinkAlt />
+                    </button>
+                    <button
+                      style={{ width: '70px' }}
+                      onClick={() => handleCopy(card.link)}
+                    >
+                      <FaCopy />
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))
         ) : (
-          <p>No Ads available</p>
+          <p>No ShortLinks available</p>
         )}
       </div>
       {showSuccess && (
@@ -405,4 +425,4 @@ function Test({ updateHeaderPoints }) {
   );
 }
 
-export default Test;
+export default WatchAds;

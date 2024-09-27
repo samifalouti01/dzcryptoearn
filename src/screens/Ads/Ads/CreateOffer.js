@@ -137,14 +137,22 @@ function CreateOffer() {
   return (
     <div className="create-ad-container">
       <h2>Create Offer</h2>
-      <input
-        type="text"
-        placeholder="Offer Title"
+      <select
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-      />
+      >
+        <option value="" disabled>Select a platform</option>
+        <option value="Facebook">Facebook</option>
+        <option value="Instagram">Instagram</option>
+        <option value="Youtube">Youtube</option>
+        <option value="TikTok">TikTok</option>
+        <option value="VK">VK</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Snapchat">Snapchat</option>
+        <option value="X">X</option>
+      </select>
       <textarea
-        placeholder={`eg: Go to this account @tiktokusername\n\n- Follow\n- 5 Likes\n- 10 Comments`}
+        placeholder={`eg: Go to this account @tiktokusername\n\n- Follow\n- 1 Likes\n- 5 Comments`}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       ></textarea>

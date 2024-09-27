@@ -144,11 +144,15 @@ function CreateAds() {
         />
       </div>
       <div>
-        <textarea
-          placeholder="Short Description"
-          value={shortDescription}
-          onChange={(e) => setShortDescription(e.target.value)}
-        ></textarea>
+      <textarea
+        placeholder="Short Description"
+        value={shortDescription}
+        onChange={(e) => {
+          if (e.target.value.length <= 20) {
+            setShortDescription(e.target.value);
+          }
+        }}
+      ></textarea>
       </div>
       <div>
         <input

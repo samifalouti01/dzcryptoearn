@@ -372,7 +372,7 @@ function WatchAds({ updateHeaderPoints }) {
           </p>
         </div>
       </div>
-      <h1>Short Links ({cards.length})</h1>
+      <h1>Watch Ads ({cards.length})</h1>
       <div className="card-container">
         {cards.length > 0 ? (
           cards
